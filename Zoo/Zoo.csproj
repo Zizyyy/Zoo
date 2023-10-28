@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8774484F-E64B-4B82-8EEE-9AD2E6424335}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Zoo</RootNamespace>
+    <AssemblyName>Zoo</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ClassHelper\EFTClass.cs" />
+    <Compile Include="DB\Animal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Client.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Specias.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\TypeTicket.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AnimalWindow.xaml.cs">
+      <DependentUpon>AnimalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\BuyTicketWindow.xaml.cs">
+      <DependentUpon>BuyTicketWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CertainAnimalWindow.xaml.cs">
+      <DependentUpon>CertainAnimalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Rules.xaml.cs">
+      <DependentUpon>Rules.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\TicketWindow.xaml.cs">
+      <DependentUpon>TicketWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="DB\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\CloseButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Resources\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Scroll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TextBlockLogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TextStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AnimalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\BuyTicketWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CertainAnimalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Rules.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TicketWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ButtonMinimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\MapButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\zoomapnew.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\BtnHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\TicketsTable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\NoImageService.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Animals\Mandrill.png" />
+    <Resource Include="Assets\Animals\BaboonAnubis.png" />
+    <Resource Include="Assets\Animals\Kangaroo.png" />
+    <Resource Include="Assets\Animals\EurasianBeaver.png" />
+    <Resource Include="Assets\Animals\SugarGlider.png" />
+    <Resource Include="Assets\Animals\Degu.png" />
+    <Resource Include="Assets\Animals\MiddayGerbil.png" />
+    <Resource Include="Assets\Animals\BlackNeckedSwan.png" />
+    <Resource Include="Assets\Animals\Peafowl.png" />
+    <Resource Include="Assets\Animals\ScarletMacaw.png" />
+    <Resource Include="Assets\Animals\Mallard.png" />
+    <Resource Include="Assets\Animals\TocoToucan.png" />
+    <Resource Include="Assets\Animals\AmericanAlligator.png" />
+    <Resource Include="Assets\Animals\ChineseAlligator.png" />
+    <Resource Include="Assets\Animals\FalseGharial.png" />
+    <Resource Include="Assets\Animals\Dwarfcrocodile.png" />
+    <Resource Include="Assets\Animals\SpectacledCaiman.png" />
+    <Resource Include="Assets\Animals\GreenIguana.png" />
+    <Resource Include="Assets\Animals\MotleyEfa.png" />
+    <Resource Include="Assets\Animals\TranscaucasianViper.png" />
+    <Resource Include="Assets\Animals\RhinocerosViper.png" />
+    <Resource Include="Assets\Animals\JapaneseMacaque.png" />
+    <Resource Include="Assets\Animals\MangroveSnake.png" />
+    <Resource Include="Assets\Animals\GreenMamba.png" />
+    <Resource Include="Assets\Animals\NajaPallida.png" />
+    <Resource Include="Assets\Animals\SiameseCobra.png" />
+    <Resource Include="Assets\Animals\BlackNeckedCobra.png" />
+    <Resource Include="Assets\Animals\PersianViper.png" />
+    <Resource Include="Assets\Animals\BlackMamba.png" />
+    <Resource Include="Assets\Animals\Wolf.png" />
+    <Resource Include="Assets\Animals\AfricanWildCat.png" />
+    <Resource Include="Assets\Animals\MetridiumSenile.png" />
+    <Resource Include="Assets\Animals\AtlasMoth.png" />
+    <Resource Include="Assets\Animals\GiantAfricanLandSnail.png" />
+    <Resource Include="Assets\Animals\MigratoryLocust.png" />
+    <Resource Include="Assets\Animals\PostmanButterfly.png" />
+    <Resource Include="Assets\Animals\AilanthusSilkmoth.png" />
+    <Resource Include="Assets\Animals\OwlButterfly.png" />
+    <Resource Include="Assets\Animals\FourColorSeaAnemone.png" />
+    <Resource Include="Assets\Animals\HouseCricket.png" />
+    <Resource Include="Assets\Animals\GreenToad.png" />
+    <Resource Include="Assets\Animals\GrayToad.png" />
+    <Resource Include="Assets\Animals\MongolianToad.png" />
+    <Resource Include="Assets\Animals\ClownFish.png" />
+    <Resource Include="Assets\Animals\MombasaLionfish.png" />
+    <Resource Include="Assets\Animals\ZebraLionfish.png" />
+    <Resource Include="Assets\Animals\GentooPenguin.png" />
+    <Resource Include="Assets\Animals\YellowCrestedCockatoo.png" />
+    <Resource Include="Assets\Animals\MoluccanCockatoo.png" />
+    <Resource Include="Assets\Animals\GreatFootedOwl.png" />
+    <Resource Include="Assets\Animals\PlumHeadedParrot.png" />
+    <Resource Include="Assets\Animals\GalapagosTortoise.png" />
+    <Resource Include="Assets\Animals\WeeperCapuchin.png" />
+    <Resource Include="Assets\Animals\Gorilla.png" />
+    <Resource Include="Assets\Animals\Panda.png" />
+    <Resource Include="Assets\Animals\SnowLeopard.png" />
+    <Resource Include="Assets\Animals\Cheetah.png" />
+    <Resource Include="Assets\Animals\WhiteBear.png" />
+    <Resource Include="Assets\Animals\BrownBear.png" />
+    <Resource Include="Assets\Animals\copybara.jpg" />
+    <Resource Include="Assets\Animals\Logan.png" />
+    <Content Include="DB\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

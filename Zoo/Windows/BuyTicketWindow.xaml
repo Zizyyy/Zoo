@@ -1,0 +1,103 @@
+﻿<Window x:Class="Zoo.Windows.BuyTicketWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zoo.Windows"
+        mc:Ignorable="d"
+        Title="BuyTicketWindow" Height="225" Width="800"    
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" Icon="/Assets/Logo.png"
+        Background="{x:Null}"
+        AllowsTransparency="True">
+    <Border Background="#373737"
+            CornerRadius="15">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="ToolBar" Background="Transparent" MouseDown="ToolBar_MouseDown" >
+                <Image Source="/Assets/Logo.png" Height="25"
+                       HorizontalAlignment="Left"
+                       Margin="10 0 0 0"></Image>
+                <StackPanel  Grid.Row="0" HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                    <Image x:Name="BtnMinimize" 
+                           Source="/Assets/ButtonMinimize.png" 
+                           Height="25" Width="25"
+                           Margin="0 15 5 0" MouseDown="BtnMinimize_MouseDown" />
+                    <Image x:Name="BtnClose" 
+                           Source="/Assets/CloseButton.png" 
+                           Height="25"
+                           Margin="0 0 10 0" MouseDown="BtnClose_MouseDown"/>
+                </StackPanel>
+            </Grid>
+            <StackPanel Grid.Row="1"
+                        Width="800"
+                        HorizontalAlignment="Left"
+                        Orientation="Horizontal">
+                <StackPanel Width="300"
+                            Height="200">
+                    <TextBlock Text="Фамилия"
+                               Style="{DynamicResource TblLogo}"
+                               Margin="10 0 0 0"/>
+                    <TextBox x:Name="TbLName"
+                             Style="{DynamicResource TbStyle}"
+                             Width="290"
+                             Height="30"
+                             Margin="0 5 0 0"/>
+                    <TextBlock Text="Отчество"
+                               Style="{DynamicResource TblLogo}"
+                               Margin="10 0 0 0"/>
+                    <TextBox x:Name="TbMName"
+                             Style="{DynamicResource TbStyle}"
+                             Width="290"
+                             Height="30"
+                             Margin="0 5 0 0"/>
+                    <ComboBox x:Name="CmbTypeTicket"
+                              Width="290"
+                              Height="30"
+                              Margin="0 30 0 0" SelectionChanged="CmbTypeTicket_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Width="300"
+                            Height="200">
+                    <TextBlock Text="Имя"
+                                Style="{DynamicResource TblLogo}"
+                                Margin="10 0 0 0"/>
+                    <TextBox x:Name="TbFName"
+                              Style="{DynamicResource TbStyle}"
+                              Width="290"
+                              Height="30"
+                              Margin="0 5 0 0"/>
+                    <TextBlock Text="Электронная почта"
+                                Style="{DynamicResource TblLogo}"
+                                Margin="10 0 0 0"/>
+                    <TextBox x:Name="TbEmail"
+                              Style="{DynamicResource TbStyle}"
+                              Width="290"
+                              Height="30"
+                              Margin="0 5 0 0"/>
+                    <TextBlock Text="Телефон"
+                                Style="{DynamicResource TblLogo}"
+                                Margin="10 0 0 0"/>
+                    <TextBox x:Name="TbPhone"
+                              Style="{DynamicResource TbStyle}"
+                              Width="290"
+                              Height="30"
+                              Margin="0 5 0 0"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical"
+                            Width="200">
+                    <TextBlock x:Name="TblPrice" 
+                               Style="{DynamicResource TblText}"
+                               Margin="100 125 40 0"/>
+                    <Button x:Name="BtnBuyTicket"
+                            Style="{DynamicResource BtnStyle}"
+                            Content="КУПИТЬ" Click="BtnBuyTicket_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,102 @@
+﻿<Window x:Class="Zoo.Windows.TicketWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Zoo.Windows"
+        mc:Ignorable="d"
+        Title="TicketWindow" Height="850" Width="1200" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None" Icon="/Assets/Logo.png"
+        Background="{x:Null}"
+        AllowsTransparency="True">
+    <Border Background="#373737"
+            CornerRadius="15">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="ToolBar" Background="Transparent" MouseDown="ToolBar_MouseDown" >
+                <Image Source="/Assets/Logo.png" Height="25"
+HorizontalAlignment="Left"
+Margin="10 0 0 0"></Image>
+                <!--<TextBlock Text="СОЛНЕЧНЫЙ ЗООПАРК"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    Style="{DynamicResource TblLogo}"/>-->
+                <StackPanel  Grid.Row="0" HorizontalAlignment="Right"
+                             Orientation="Horizontal">
+                    <Image x:Name="BtnMinimize" 
+                            Source="/Assets/ButtonMinimize.png" 
+                            Height="25" Width="25"
+                            Margin="0 15 5 0" MouseDown="BtnMinimize_MouseDown" />
+                    <Image x:Name="BtnClose" 
+                            Source="/Assets/CloseButton.png" 
+                            Height="25"
+                            Margin="0 0 10 0" MouseDown="BtnClose_MouseDown"/>      
+                </StackPanel>
+            </Grid>
+
+
+            <Rectangle Grid.Row="1" Width="1200" Height="10" Fill="#4E2590" VerticalAlignment="Top"/>
+            <Image x:Name="BtnHome"
+            Source="/Assets/BtnHome.png"
+            Grid.Row="1"
+            HorizontalAlignment="Left"
+            Margin="15 0 0 0"
+            Height="50"
+            Width="50" MouseDown="BtnHome_MouseDown"/>
+            <TextBlock  Grid.Row="1"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Center"
+             Text="БИЛЕТЫ"
+             Foreground="#FCEA4A"
+             FontFamily="Segoe UI Black"
+             FontSize="32"/>
+            <Rectangle Grid.Row="1" Width="1200" Height="10" Fill="#4E2590" VerticalAlignment="Bottom"/>
+            <ScrollViewer Grid.Row="2" >
+                <StackPanel>
+                    <TextBlock Text="Московский зоопарк работает ежедневно с 09:00 до 18:00 (вход до 17:00)" Style="{DynamicResource TblText}" 
+                               Margin="50 0 0 0" 
+                               FontSize="22"
+                               HorizontalAlignment="Center"/>
+                    <TextBlock Text="В настоящее время в зоопарке проводятся ремонтные работы, из-за которых временно не экспонируются некоторые животные.
+Дополнительные входы в Московский зоопарк:&#10;
+- новый вход из метро Баррикадная с 9:00 до 17:00&#10;
+- через Детский зоопарк с ул.Садовая-Кудринская; с 9:00 до 17:00"
+                               Style="{DynamicResource TblText}" Margin="88 15 0 0"/>
+
+                    <TextBlock Style="{DynamicResource TblText}"
+                               Margin="0 20 0 20"
+                               HorizontalAlignment="Center"
+                               Text="Стоимость взрослого билета -1000р."
+                               FontSize="22"/>
+                    <Image Height="1100" Source="/Assets/TicketsTable.png"/>
+                    <TextBlock Style="{DynamicResource TblText}"
+                               Margin="88 20 0 20"
+                               Text="Бесплатный вход в зоопарк по льготным билетам:&#10;
+· для детей до 17 лет включительно (от 14 лет и старше – по предъявлению паспорта);&#10;
+· для студентов очной формы обучения образовательных учреждений среднего и высшего образования (по предъявлению действительного студенческого билета, либо социальной &#10;карты учащегося/студента);&#10;
+· для военнослужащих срочной службы и курсантов военных училищ (по предъявлению военного билета);&#10;
+· для участников боевых действий (по предъявлению удостоверения участника боевых действий);&#10;
+· для инвалидов (по предъявлению пенсионного удостоверения, справки о подтверждении инвалидности либо социальной карты);&#10;
+· для пенсионеров (по предъявлению пенсионного удостоверения, паспорта либо социальной карты);&#10;
+· для многодетных родителей (по удостоверению многодетных родителей либо паспорту, если там записано три ребёнка и более)."/>
+                    <TextBlock Style="{DynamicResource TblText}"
+                               Margin="88 0 0 0"
+                               Text="ВАЖНАЯ ИНФОРМАЦИЯ (для посетителей льготной категории)"/>
+                    <TextBlock Style="{DynamicResource TblText}"
+           Margin="88 0 0 0"
+           Text="Обращаем внимание, что для подтверждения права на льготное (бесплатное) посещение зоопарка наряду с документом, подтверждающим льготу, необходимо предъявить документ &#10;с фотографией, удостоверяющий личность, (паспорт), а также, во избежание возникновения спорных ситуаций, учащимся старших классов средней школы необходимо иметь при &#10;себе паспорт для подтверждения возраста и права на льготное (бесплатное) посещение зоопарка.
+&#10;Приносим извинения за доставленные неудобства.
+Надеемся на ваше понимание!"/>
+                </StackPanel>
+            </ScrollViewer>
+            
+        </Grid>
+    </Border>
+</Window>

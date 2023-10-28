@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ZooModelContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Animal">
+      <EntityTypeMapping TypeName="ZooModel.Animal">
+        <MappingFragment StoreEntitySet="Animal">
+          <ScalarProperty Name="SpeciasID" ColumnName="SpeciasID" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="Information" ColumnName="Information" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="ZooModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="MName" ColumnName="MName" />
+          <ScalarProperty Name="FName" ColumnName="FName" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="ZooModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="DateSale" ColumnName="DateSale" />
+          <ScalarProperty Name="TypeTicketID" ColumnName="TypeTicketID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Specias">
+      <EntityTypeMapping TypeName="ZooModel.Specias">
+        <MappingFragment StoreEntitySet="Specias">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeTicket">
+      <EntityTypeMapping TypeName="ZooModel.TypeTicket">
+        <MappingFragment StoreEntitySet="TypeTicket">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

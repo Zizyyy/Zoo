@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZooModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Animal" EntityType="ZooModel.Animal" />
+    <EntitySet Name="Client" EntityType="ZooModel.Client" />
+    <EntitySet Name="Order" EntityType="ZooModel.Order" />
+    <EntitySet Name="Specias" EntityType="ZooModel.Specias" />
+    <EntitySet Name="TypeTicket" EntityType="ZooModel.TypeTicket" />
+    <AssociationSet Name="FK_Animal_Specias" Association="ZooModel.FK_Animal_Specias">
+      <End Role="Specias" EntitySet="Specias" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Client" Association="ZooModel.FK_Order_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_TypeTicket" Association="ZooModel.FK_Order_TypeTicket">
+      <End Role="TypeTicket" EntitySet="TypeTicket" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Information" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhotoPath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="SpeciasID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Specias" Relationship="ZooModel.FK_Animal_Specias" FromRole="Animal" ToRole="Specias" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order" Relationship="ZooModel.FK_Order_Client" FromRole="Client" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <Property Name="TypeTicketID" Type="Int32" Nullable="false" />
+    <Property Name="DateSale" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="ZooModel.FK_Order_Client" FromRole="Order" ToRole="Client" />
+    <NavigationProperty Name="TypeTicket" Relationship="ZooModel.FK_Order_TypeTicket" FromRole="Order" ToRole="TypeTicket" />
+  </EntityType>
+  <EntityType Name="Specias">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Animal" Relationship="ZooModel.FK_Animal_Specias" FromRole="Specias" ToRole="Animal" />
+  </EntityType>
+  <EntityType Name="TypeTicket">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="Order" Relationship="ZooModel.FK_Order_TypeTicket" FromRole="TypeTicket" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_Animal_Specias">
+    <End Type="ZooModel.Specias" Role="Specias" Multiplicity="1" />
+    <End Type="ZooModel.Animal" Role="Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specias">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="SpeciasID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Client">
+    <End Type="ZooModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="ZooModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_TypeTicket">
+    <End Type="ZooModel.TypeTicket" Role="TypeTicket" Multiplicity="1" />
+    <End Type="ZooModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeTicket">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="TypeTicketID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
